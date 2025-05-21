@@ -13,8 +13,6 @@ const VideoPreview = ({ promptId }: VideoPreviewProps) => {
   const [videoData, setVideoData] = useState({ status: "processing", final_video_url: null });
   const [pollingActive, setPollingActive] = useState(true);
 
-  // 👇 Reemplaza este valor por el ID real del prompt
-
   useEffect(() => {
     if (!pollingActive) return;
 
@@ -32,7 +30,7 @@ const VideoPreview = ({ promptId }: VideoPreviewProps) => {
       } catch (err) {
         console.error("❌ Error al verificar estado del video:", err);
       }
-    }, 5000); // consulta cada 5 segundos
+    }, 5000); 
 
     return () => clearInterval(interval);
   }, [pollingActive, promptId]);
